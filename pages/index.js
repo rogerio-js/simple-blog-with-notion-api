@@ -34,12 +34,17 @@ export async function getServerSideProps(context) {
 
   const blocks = getBlocks?.results;
 
+  //pass only "child_page" type as props
   let blogs = [];
+  
   Object.keys(blocks).forEach((key) => {
     if (blocks[key].type === "child_page") {
       blogs.push(blocks[key]);
     }
   });
+
+  
+
 
   return {
     props: {
